@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: "export",
   allowedDevOrigins: ["*.preview.same-app.com"],
@@ -33,6 +36,8 @@ const nextConfig = {
       },
     ],
   },
+  basePath: isProd ? '/trendfinds-hub' : '',
+  assetPrefix: isProd ? '/trendfinds-hub/' : '',
 };
 
 module.exports = nextConfig;
